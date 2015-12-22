@@ -1,0 +1,67 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="blog">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>Semi-Tech App</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+
+    <!-- JS -->
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
+    <script src="js/services/blog_posts.js"></script>
+    <script src="js/controllers/main.js"></script>
+    <script src="js/core.js"></script>
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL blog_post -->
+<body ng-controller="mainController">
+    <div class="container">
+
+        <!-- HEADER AND blog_post COUNT -->
+        <div class="jumbotron text-center">
+            <h1>I'm a blog_post-aholic <span class="label label-info">{{ blog_post.length }}</span></h1>
+        </div>
+
+        <!-- blog_post LIST -->
+        <div id="blog_post-list" class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+
+                <!-- LOOP OVER THE blog_post IN $scope.blog_post -->
+                <div class="checkbox" ng-repeat="blog_post in blog_post">
+                    <label>
+                        <input type="checkbox" ng-click="deleteblog_post(blog_post._id)"> {{ blog_post.text }}
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FORM TO CREATE blog_post -->
+        <div id="blog_post-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form>
+                    <div class="form-group">
+
+                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                        <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
+                    </div>
+
+                    <!-- createblog_post() WILL CREATE NEW blog_post -->
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createblog_post()">Add</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
