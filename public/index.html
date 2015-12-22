@@ -19,7 +19,9 @@
     <script src="libs/angular-route/angular-route.min.js"></script>
     <script src="js/services/blog_posts.js"></script>
     <script src="js/controllers/main.js"></script>
+    <script src="js/directives/hello-world.js"></script>
     <script src="js/core.js"></script>
+    <script src="js/controllers/main.js"></script>
 
 </head>
 <!-- SET THE CONTROLLER AND GET ALL blog_post -->
@@ -27,7 +29,7 @@
     <div class="container">
 
         <!-- HEADER AND blog_post COUNT -->
-        <div class="jumbotron text-center">
+        <div class="jumbotron text-center" ng-click="helloWorld()">
             <h1>I'm a blog_post-aholic <span class="label label-info">{{ blog_post.length }}</span></h1>
         </div>
 
@@ -60,6 +62,8 @@
                 </form>
             </div>
         </div>
+
+        <hello-world></hello-world>
 
     </div>
 

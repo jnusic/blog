@@ -41,4 +41,9 @@ angular.module('blog_postsController', [])
 	            });
 	    };
 
+	    // test hello world function
+	    $scope.helloWorld = function () {
+	    	console.log("Sup. This is the hello world controller function"); 
+	    };
+
 	});
