@@ -1,6 +1,5 @@
 // js/controllers/main.js
-
-angular.module('blog_postsController', [])
+angular.module('blog_postsController', ['$scope','$http','blog_posts'])
 
 	.controller('mainController', function($scope,$http,blog_posts) {
 

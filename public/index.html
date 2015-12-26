@@ -12,60 +12,150 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+    <link rel="stylesheet" href="main.css"> <!-- custom styles -->
 
     <!-- JS -->
     <script src="libs/angular/angular.min.js"></script>
     <script src="libs/angular-route/angular-route.min.js"></script>
+    <script src="libs/jquery/dist/jquery.js"></script>
     <script src="js/services/blog_posts.js"></script>
     <script src="js/controllers/main.js"></script>
     <script src="js/directives/hello-world.js"></script>
     <script src="js/core.js"></script>
-    <script src="js/controllers/main.js"></script>
+    <script src="js/modernizr.custom.32229-2.8-respondjs-1-4-2.js"></script>
 
 </head>
 <!-- SET THE CONTROLLER AND GET ALL blog_post -->
 <body ng-controller="mainController">
-    <div class="container">
+   <header class="hero-image" role="banner" style="background-image: url(img/default-single-hero.jpg);">
 
-        <!-- HEADER AND blog_post COUNT -->
-        <div class="jumbotron text-center" ng-click="helloWorld()">
-            <h1>I'm a blog_post-aholic <span class="label label-info">{{ blog_post.length }}</span></h1>
-        </div>
+            <span class="menu-trigger animated fadeInDown">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </span>
 
-        <!-- blog_post LIST -->
-        <div id="blog_post-list" class="row">
-            <div class="col-sm-4 col-sm-offset-4">
-
-                <!-- LOOP OVER THE blog_post IN $scope.blog_post -->
-                <div class="checkbox" ng-repeat="blog_post in blog_post">
-                    <label>
-                        <input type="checkbox" ng-click="deleteblog_post(blog_post._id)"> {{ blog_post.text }}
-                    </label>
+            <!-- if the user has javascript disabled they can still use the menu -->
+            <noscript>
+                <div class="no-js-menu">
+                    <ul>
+                        <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                        <li><i class="fa fa-user"></i><a href="author.html">John Smith</a></li>
+                        <li><i class="fa fa-anchor"></i><a href="page.html">About</a></li>
+                        <li><i class="fa fa-star"></i><a href="favorites.html">Favorites</a></li>
+                        <li><i class="fa fa-paper-plane"></i><a href="contact.html">Contact</a></li>
+                        <li><i class="fa fa-file"></i><a href="post.html">Post Page</a></li>
+                        <li><i class="fa fa-file"></i><a href="post-sidebar.html">Post with Sidebar</a></li>
+                        <li><i class="fa fa-home"></i><a href="alt-home.html">Alternate Home</a></li>
+                        <li><i class="fa fa-image"></i><a href="category.html">Category Page</a></li>
+                    </ul>
                 </div>
+            </noscript>
+            <!-- end no script -->
 
+            <div id="menu-target">
+                <ul>
+                    <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                    <li><i class="fa fa-user"></i><a href="author.html">John Smith</a></li>
+                    <li><i class="fa fa-anchor"></i><a href="page.html">About</a></li>
+                    <li><i class="fa fa-star"></i><a href="favorites.html">Favorites</a></li>
+                    <li><i class="fa fa-paper-plane"></i><a href="contact.html">Contact</a></li>
+                </ul>
+                <hr>
+                <ul>
+                    <li><i class="fa fa-file"></i><a href="post.html">Post Page</a></li>
+                    <li><i class="fa fa-file"></i><a href="post-sidebar.html">Post with Sidebar</a></li>
+
+                    <li><i class="fa fa-home"></i><a href="alt-home.html">Alternate Home</a></li>
+                    <li><i class="fa fa-image"></i><a href="category.html">Category Page</a></li>
+                </ul>
             </div>
-        </div>
+        </header>
 
-        <!-- FORM TO CREATE blog_post -->
-        <div id="blog_post-form" class="row">
-            <div class="col-sm-8 col-sm-offset-2 text-center">
-                <form>
-                    <div class="form-group">
+        <main class="container">
+            <div class="row">
+                <div class="col-xs-12 single-content">
+                    <p class="meta">
+                        <a class="" href="category.html">Jesus Najera</a> in <a class="" href="category.html">Storytime</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> 23 minute read
+                    </p>
 
-                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                        <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
+                    <h1>The Beginning</h1>
+
+                    <p class="subtitle">Like I said, it all started with a google search...</p>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra ligula eget feugiat sollicitudin. Praesent accumsan, ante ut porttitor aliquet, odio felis mollis ante, et pretium arcu ipsum eget turpis. Quisque congue odio tristique, tincidunt arcu a, dignissim neque. Cras ligula erat, porta sed tristique at, sollicitudin sit amet ligula. Quisque eleifend elementum mauris, eu condimentum tortor ultrices a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer hendrerit, arcu a aliquam malesuada, sapien quam tempor neque, nec aliquam odio mi vel diam. Pellentesque egestas pharetra justo, id malesuada erat tincidunt ac. Ut mauris mauris, ultricies ut pharetra sit amet, suscipit sed nibh. Suspendisse vestibulum sem sed rhoncus pharetra. Nunc commodo, neque eget gravida mattis, augue est sollicitudin nunc, elementum aliquet tortor mi ac velit. Ut nec pharetra est. Vestibulum at mauris sapien. Duis sed turpis at lectus egestas rhoncus.</p>
+
+                    <p class="pullquote">Ut ullamcorper turpis nec felis vestibulum, vitae pretium mi sodales.</p>
+
+
+                    <p>Suspendisse laoreet consequat pellentesque. Aliquam erat volutpat. Nulla est elit, bibendum sit amet mauris eu, varius sollicitudin nibh. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus veniam laborum sapiente, doloribus placeat culpa aliquam asperiores laudantium nobis ipsum ut, suscipit delectus! Aut delectus, voluptate, sunt fugiat ea harum!</p>
+
+                    <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel voluptatem optio, excepturi, sapiente corporis nihil quis natus quibusdam odio ex laborum cupiditate minima eos.</blockquote>
+
+                    <p>auctor a erat ac, dignissim bibendum urna. Ut aliquet convallis scelerisque. Praesent id luctus leo. Nam vestibulum interdum ligula blandit molestie. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis tempore illum inventore sit commodi, id eos nemo est voluptate aperiam tenetur? In, sint sed reprehenderit ipsum voluptas, nam molestias velit.</p>
+
+                    <hr>
+
+                    <p>Etiam sed condimentum elit. Curabitur eu malesuada turpis. Nam sit amet dui tellus. Nullam eget neque sed lectus tincidunt fermentum. Aenean ac interdum odio, vitae consectetur erat. Nunc venenatis turpis sed consectetur lacinia. Phasellus euismod odio feugiat, semper ligula in, egestas magna. Duis ullamcorper gravida lacus a blandit. Fusce et diam pellentesque, egestas diam pellentesque, gravida libero. Ut condimentum, nulla ac faucibus porttitor, est dui gravida est, vel varius mi justo at erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla facilisis diam eu libero suscipit lacinia. Sed sollicitudin justo ut fermentum venenatis. Morbi justo magna, pellentesque rutrum scelerisque eget, vehicula ac eros. Nam quis velit ac lorem blandit egestas eget id ante. Integer nibh arcu, vulputate eget luctus vel, porta eu ligula.</p>
+
+                        <ul>
+                            <li>Maecenas pulvinar, turpis quis luctus tincidunt.</li>
+                            <li>Maecenas pulvinar, turpis quis luctus tincidunt.</li>
+                            <li>Maecenas pulvinar, turpis quis luctus tincidunt.</li>
+                            <li>Maecenas pulvinar, turpis quis luctus tincidunt.</li>
+                        </ul>
+
+                    <p>Lorem massa hendrerit mi, ut dapibus sem enim at nisl. Nullam ut mollis arcu. Quisque lobortis nibh diam, non molestie dui pretium et. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quos, mollitia dolor nam soluta consequuntur excepturi eveniet quod autem quasi. Labore dolorum vel voluptates molestias qui perspiciatis eveniet non, culpa!</p>
+
+
+                </div><!-- main-content/col -->
+            </div> <!--/row -->
+
+        </main> <!-- /container -->
+
+        <footer class="single">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-2">
+                        <img src="img/profile-1.jpg" class="user-icon " alt="user-image">
                     </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="category-list">
+                            <p>Published <span>14th May 2015</span></p>
+                            <p><a href="#">James Reddy</a> in <a href="#">Storytime</a></p>
 
-                    <!-- createblog_post() WILL CREATE NEW blog_post -->
-                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createblog_post()">Add</button>
-                </form>
+                            <div class="other-catergories">
+                                <h3>Also found in</h3>
+
+                                <ul>
+                                    <li><a href="#">Stories</a>,</li>
+                                    <li><a href="#">Life</a>,</li>
+                                    <li><a href="#">Adventures</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div><!-- end col -->
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="social">
+                            <p>Share this article</a>
+                            <div class="social-links">
+                                <a class="social-icon" href="#" data-platform="twitter" data-message="Message about this post" data-url="http://writertheme.com/post"><i class="fa fa-twitter"></i></a>
+
+                                <a class="social-icon" href="#" data-platform="facebook" data-message="Message about this post" data-url="http://writertheme.com/post"><i class="fa fa-facebook-official"></i></a>
+
+                                <a class="social-icon" data-platform="mail"  href="mailto:support@writertheme.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end row -->
             </div>
-        </div>
 
-        <hello-world></hello-world>
+        
+        </footer>
 
-    </div>
+        <script src="js/jquery.jpanelmenu.min.js"></script>
+        <script src="js/fastclick.min.js"></script>
 
 </body>
 </html>
