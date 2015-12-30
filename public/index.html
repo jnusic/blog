@@ -26,7 +26,10 @@
 
 </head>
 <!-- SET THE CONTROLLER AND GET ALL blog_post -->
-<body ng-controller="mainController">
+<body ng-controller="mainController" ng-init="names=[
+{name:'Jani',country:'Norway',worth:20},
+{name:'Hege',country:'Sweden',worth:22},
+{name:'Kai',country:'Denmark',worth:10}]">
    <header class="hero-image" role="banner" style="background-image: url(setwin.png);">
 
             <span class="menu-trigger animated fadeInDown">
@@ -143,7 +146,11 @@
 
         
         </footer>
-        <hello-world></hello-world>
+        <hello-world>
+            <ul>
+                <li ng-repeat="x in names" ng-if="x.worth > 10">{{x.country + " " + x.name}}</li>
+            </ul>
+        </hello-world>
         <script src="js/jquery.jpanelmenu.min.js"></script>
         <script src="js/fastclick.min.js"></script>
 
